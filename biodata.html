@@ -156,4 +156,59 @@ ul li{
             <div class="section-title">Personal Details</div>
             <div class="row"><div class="label">Name</div><div class="value">Muhammad Sahil Ansari</div></div>
             <div class="row"><div class="label">Date of Birth</div><div class="value">28 December 2002</div></div>
-            <div class="row"
+            <div class="row"><div class="label">Place of Birth</div><div class="value">Mehnajpur</div></div>
+            <div class="row"><div class="label">Height</div><div class="value">5 Feet 4 Inches</div></div>
+            <div class="row"><div class="label">Complexion</div><div class="value">Fair</div></div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Education</div>
+            <ul>
+                <li>B.Sc</li>
+                <li>Dento Oral Hygienist</li>
+                <li>D.Pharma (Appearing)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Family Details</div>
+            <div class="row"><div class="label">Father</div><div class="value">Mr. Jainul Abdin</div></div>
+            <div class="row"><div class="label">Mother</div><div class="value">Mrs. Afsari Begum</div></div>
+            <ul>
+                <li>Sadik Ansari – Property Dealer (Married)</li>
+                <li>Kadir Ansari – Shop Businessman (Married)</li>
+                <li>Abdul Baki Ansari – B.Sc, M.Sc, B.Ed</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Address</div>
+            <div class="row"><div class="label">Village</div><div class="value">Mehnajpur (Near PNB)</div></div>
+            <div class="row"><div class="label">Post</div><div class="value">Mehnajpur</div></div>
+            <div class="row"><div class="label">District</div><div class="value">Azamgarh</div></div>
+        </div>
+
+    </div>
+</div>
+
+<div class="pdf-btn">
+    <button onclick="downloadPDF()">Download A4 PDF</button>
+</div>
+
+<script>
+function downloadPDF(){
+    const element=document.getElementById("biodata");
+
+    html2pdf().set({
+        margin:0,
+        filename:'Marriage_Biodata.pdf',
+        image:{type:'jpeg',quality:0.98},
+        html2canvas:{scale:2,scrollY:0},
+        jsPDF:{unit:'mm',format:'a4',orientation:'portrait'},
+        pagebreak:{mode:'avoid-all'}
+    }).from(element).save();
+}
+</script>
+
+</body>
+</html>
