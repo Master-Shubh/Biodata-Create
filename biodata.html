@@ -5,7 +5,10 @@
 <title>Marriage Biodata</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+<!-- PDF Library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <style>
@@ -14,7 +17,7 @@
 body{
     margin:0;
     padding:0;
-    background:#e6e6e6;
+    background:#e5e5e5;
     font-family:'Poppins', sans-serif;
 }
 
@@ -66,10 +69,10 @@ body{
     filter:brightness(1.07) contrast(1.1) saturate(1.05);
 }
 
-/* ===== CONTENT (AUTO FLEX) ===== */
+/* ===== CONTENT ===== */
 .content{
     padding:22px 32px;
-    flex:1; /* 🔥 fills middle space naturally */
+    flex:1;
 }
 
 .section{
@@ -105,9 +108,11 @@ ul{
     font-size:14px;
 }
 
-ul li{ margin-bottom:4px; }
+ul li{
+    margin-bottom:4px;
+}
 
-/* ===== FOOTER CREDIT ===== */
+/* ===== FOOTER ===== */
 .footer{
     text-align:center;
     font-size:11.5px;
@@ -130,9 +135,12 @@ ul li{ margin-bottom:4px; }
     cursor:pointer;
 }
 
-/* ===== MOBILE ===== */
+/* ===== MOBILE VIEW ===== */
 @media(max-width:600px){
-    .page{ width:100%; height:auto; }
+    .page{
+        width:100%;
+        height:auto;
+    }
 }
 </style>
 </head>
@@ -148,11 +156,12 @@ ul li{ margin-bottom:4px; }
     </div>
 
     <div class="photo">
-        <img src="profile.jpg" alt="Photo">
+        <img src="profile.jpg" alt="Muhammad Sahil Ansari">
     </div>
 
     <div class="content">
 
+        <!-- PERSONAL DETAILS -->
         <div class="section">
             <div class="section-title">Personal Details</div>
             <div class="row"><div class="label">Name</div><div class="value">Muhammad Sahil Ansari</div></div>
@@ -162,6 +171,7 @@ ul li{ margin-bottom:4px; }
             <div class="row"><div class="label">Complexion</div><div class="value">Fair</div></div>
         </div>
 
+        <!-- EDUCATION -->
         <div class="section">
             <div class="section-title">Educational Qualification</div>
             <ul>
@@ -171,17 +181,38 @@ ul li{ margin-bottom:4px; }
             </ul>
         </div>
 
+        <!-- FAMILY DETAILS -->
         <div class="section">
             <div class="section-title">Family Details</div>
-            <div class="row"><div class="label">Father</div><div class="value">Mr. Jainul Abdin</div></div>
-            <div class="row"><div class="label">Mother</div><div class="value">Mrs. Afsari Begum</div></div>
+
+            <div class="row">
+                <div class="label">Father</div>
+                <div class="value">Mr. Jainul Abdin</div>
+            </div>
+
+            <div class="row">
+                <div class="label">Mother</div>
+                <div class="value">Mrs. Afsari Begum</div>
+            </div>
+
+            <div class="row">
+                <div class="label">Brothers</div>
+                <div class="value"></div>
+            </div>
+
             <ul>
                 <li>Sadik Ansari – Property Dealer (Married)</li>
                 <li>Kadir Ansari – Shop Businessman (Married)</li>
                 <li>Abdul Baki Ansari – B.Sc, M.Sc, B.Ed</li>
             </ul>
+
+            <div class="row">
+                <div class="label">Sisters</div>
+                <div class="value">4 / 4 Married</div>
+            </div>
         </div>
 
+        <!-- ADDRESS -->
         <div class="section">
             <div class="section-title">Address</div>
             <div class="row"><div class="label">Village</div><div class="value">Mehnajpur (Near Punjab National Bank)</div></div>
@@ -192,7 +223,7 @@ ul li{ margin-bottom:4px; }
     </div>
 
     <div class="footer">
-        Designed & Developed by <strong>Mr. Shubh</strong> • Professional Marriage Biodata
+        Designed & Developed by <strong>Ultron</strong> • Professional Marriage Biodata
     </div>
 
 </div>
@@ -205,4 +236,14 @@ ul li{ margin-bottom:4px; }
 function downloadPDF(){
     html2pdf().set({
         margin:0,
-        fi
+        filename:'Marriage_Biodata_Muhammad_Sahil_Ansari.pdf',
+        image:{type:'jpeg',quality:0.98},
+        html2canvas:{scale:2,scrollY:0},
+        jsPDF:{unit:'mm',format:'a4',orientation:'portrait'},
+        pagebreak:{mode:'avoid-all'}
+    }).from(document.getElementById("biodata")).save();
+}
+</script>
+
+</body>
+</html>
